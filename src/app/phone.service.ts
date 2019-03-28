@@ -7,10 +7,13 @@ import { PhoneItem } from './phone-item';
   providedIn: 'root'
 })
 export class PhoneService {
-  private phonesUrl = 'http://localhost:3000/get';
+  private phonesUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) { 
   }
   getPhoneItems(): Observable<PhoneItem[]>{
-    return this.http.get<PhoneItem[]>(this.phonesUrl)
+    return this.http.get<PhoneItem[]>(this.phonesUrl + '/get');
+  }
+  deletePhoneItem(id: string): Observable<PhoneItem[]>{
+    return this.http.delete<PhoneItem[]>(this.phonesUrl + '/delete/' + id);
   }
 }

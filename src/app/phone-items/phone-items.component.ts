@@ -10,6 +10,11 @@ import { PhoneService } from '../phone.service';
 export class PhoneItemsComponent implements OnInit {
   items: PhoneItem[];
   constructor(private phoneService: PhoneService) { }
+  deletePhoneItem(id: string): void{
+    this.phoneService.deletePhoneItem(id).subscribe(() => {
+      this.getPhoneItems();
+    });
+  }
   getPhoneItems(): void{
     this.phoneService.getPhoneItems().subscribe(items => this.items = items);
   }
