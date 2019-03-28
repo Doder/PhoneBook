@@ -7,6 +7,7 @@ li{
 }
 
 li > div{
+    position: relative;
     padding: 10px 20px;
     background: white;
     border: 1px solid #ccc;
@@ -22,4 +23,20 @@ li > div{
 
 p{
     margin: 15px 0;
+}
+
+.delete-button{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background-color: red;
+    padding: 5px 15px;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-button:hover{
+    opacity: .7;
 }

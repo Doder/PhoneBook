@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ITEMS } from '../mock-items';
+import { PhoneItem } from '../phone-item';
+import { PhoneService } from '../phone.service';
 
 @Component({
   selector: 'app-phone-items',
@@ -7,10 +8,13 @@ import { ITEMS } from '../mock-items';
   styleUrls: ['./phone-items.component.css']
 })
 export class PhoneItemsComponent implements OnInit {
-  items = ITEMS;
-  constructor() { }
-
+  items: PhoneItem[];
+  constructor(private phoneService: PhoneService) { }
+  getPhoneItems(): void{
+    this.phoneService.getPhoneItems().subscribe(items => this.items = items);
+  }
   ngOnInit() {
+    this.getPhoneItems();
   }
 
 }
