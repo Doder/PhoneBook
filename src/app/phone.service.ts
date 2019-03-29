@@ -16,8 +16,8 @@ export class PhoneService {
   getPhoneItems(): Observable<PhoneItem[]>{
     return this.http.get<PhoneItem[]>(this.phonesUrl + '/get');
   }
-  deletePhoneItem(id: string): Observable<PhoneItem[]>{
-    return this.http.delete<PhoneItem[]>(this.phonesUrl + '/delete/' + id);
+  deletePhoneItem(id: string): Observable<any>{
+    return this.http.delete<any>(this.phonesUrl + '/delete/' + id);
   }
   addPhoneItem(item: PhoneItem): Observable<PhoneItem>{
     const httpOptions = {
