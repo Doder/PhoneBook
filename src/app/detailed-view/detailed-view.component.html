@@ -1,0 +1,33 @@
+<div>
+  <h2>Detailed View</h2>
+  <div class="box">
+    <label>
+      Name:
+      <input [(ngModel)]="item.name" type="text">
+    </label>
+    <br>
+    <label>
+      E-mail:
+      <input [(ngModel)]="item.email" type="text">
+    </label>
+    <br>
+    <label>
+      Phone Number:
+      <input [(ngModel)]="item.number" type="text">
+    </label>
+    <br>
+    <label>
+      Tags(separate by commas):
+      <input [(ngModel)]="item.tags" (ngModelChange)="setTags($event)" type="text" placeholder="tag1, tag2, tag3...">
+    </label>
+    <br>
+    <br>
+    <button class="default-button" (click)="this.goBack()">
+      Back
+    </button>
+    
+    <button class="add-button" (click)="addNewItem()">
+      Add
+    </button>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+h2{
+    margin-bottom: 20px;
+}
+
+.add-button{
+    background-color: rgb(62, 119, 224);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+.default-button{
+    padding: 10px 25px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+label{
+    width: 200px;
+    padding-right: 100px;
+}
+
+input{
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.box{
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 400px;
+}

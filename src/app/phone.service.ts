@@ -16,4 +16,10 @@ export class PhoneService {
   deletePhoneItem(id: string): Observable<PhoneItem[]>{
     return this.http.delete<PhoneItem[]>(this.phonesUrl + '/delete/' + id);
   }
+  addPhoneItem(item: PhoneItem): Observable<PhoneItem>{
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.post<PhoneItem>(this.phonesUrl + '/post', item, httpOptions);
+  }
 }
