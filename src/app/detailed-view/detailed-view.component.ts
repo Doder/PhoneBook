@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhoneService } from '../phone.service';
 import { PhoneItem } from '../phone-item';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -14,14 +15,28 @@ export class DetailedViewComponent implements OnInit {
     name: '',
     email: '',
     number: '',
-    tags: ['cz', 'gun']
+    tags: []
   }
+  button: string = 'Add';
   constructor(
+    private route: ActivatedRoute,
     private phoneService: PhoneService,
     private location: Location
   ) { }
 
   ngOnInit() {
+    this.getItem();
+  }
+
+  getItem(): void{
+    const id = this.route.snapshot.paramMap.get('id');
+    if(id){
+      this.button = 'Save';
+      this.phoneService.getPhoneItem(id).subscribe(item => {
+        this.item = item[0];
+      });
+    }
+    
   }
 
   goBack(): void {
@@ -33,7 +48,12 @@ export class DetailedViewComponent implements OnInit {
   }
 
   addNewItem(): void {
-    console.log(this.item);
-    this.phoneService.addPhoneItem(this.item).subscribe(() => this.goBack());
+    if(this.item.name && this.item.number){
+      this.phoneService.addPhoneItem(this.item).subscribe(() => this.goBack());
+    }
+  }
+
+  editItem(): void{
+    this.phoneService.editPhoneItem(this.item).subscribe(() => this.goBack());
   }
 }

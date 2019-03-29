@@ -5,6 +5,7 @@ import { PhoneItemsComponent } from './phone-items/phone-items.component';
 
 const routes: Routes = [
   { path: '', component: PhoneItemsComponent },
+  { path: 'detailed/:id', component: DetailedViewComponent },
   { path: 'detailed', component: DetailedViewComponent }
 ];
 

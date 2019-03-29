@@ -1,33 +1,37 @@
 <div>
-  <h2>Detailed View</h2>
-  <div class="box">
-    <label>
-      Name:
-      <input [(ngModel)]="item.name" type="text">
-    </label>
-    <br>
-    <label>
-      E-mail:
-      <input [(ngModel)]="item.email" type="text">
-    </label>
-    <br>
-    <label>
-      Phone Number:
-      <input [(ngModel)]="item.number" type="text">
-    </label>
-    <br>
-    <label>
-      Tags(separate by commas):
-      <input [(ngModel)]="item.tags" (ngModelChange)="setTags($event)" type="text" placeholder="tag1, tag2, tag3...">
-    </label>
-    <br>
-    <br>
-    <button class="default-button" (click)="this.goBack()">
-      Back
-    </button>
-    
-    <button class="add-button" (click)="addNewItem()">
-      Add
-    </button>
+    <h2>Detailed View</h2>
+    <div class="box">
+      <form #phoneForm="ngForm">
+          <label for="name-input">Name:</label>
+          <input name="name" [(ngModel)]="item.name" type="text" 
+          id="name-input" required #name="ngModel">
+          <p class="error" [hidden]="name.valid || name.untouched">
+            Name is required
+          </p>
+          <br>
+          <label for="email-input">E-mail:</label>
+          <input name="email" [(ngModel)]="item.email" type="text" id="email-input">
+          <br>
+          <label for="number-input">Phone Number:</label>
+          <input name="number" [(ngModel)]="item.number" type="text" 
+          id="number-input" required #number="ngModel">
+          <p class="error" [hidden]="number.valid || number.untouched">
+              Number is required
+            </p>
+          <br>
+          <label for="tags-input">Tags(separate by commas):</label>
+          <input name="tags" [(ngModel)]="item.tags" (ngModelChange)="setTags($event)" 
+          type="text" placeholder="tag1, tag2, tag3..." id="tags-input">
+          <br>
+          <br>
+          <button class="default-button" (click)="this.goBack()">
+            Back
+          </button>
+          <button type="submit" class="add-button" 
+          (click)="this.button === 'Add' ? addNewItem() : editItem()"
+           [disabled]="!phoneForm.form.valid">
+            {{this.button}}
+          </button>
+      </form>
+    </div>
   </div>
-</div>
