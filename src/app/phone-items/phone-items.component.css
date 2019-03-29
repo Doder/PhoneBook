@@ -36,6 +36,7 @@ p{
     border-radius: 2px;
     color: white;
     cursor: pointer;
+    font-size: 1em;
 }
 
 .delete-button:hover{
@@ -52,6 +53,7 @@ p{
     border-radius: 2px;
     color: white;
     cursor: pointer;
+    font-size: 1em;
 }
 
 .add-button:hover{
