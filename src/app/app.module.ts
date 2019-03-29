@@ -4,15 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PhoneItemsComponent } from './phone-items/phone-items.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DetailedViewComponent } from './detailed-view/detailed-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhoneItemsComponent
+    PhoneItemsComponent,
+    DetailedViewComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

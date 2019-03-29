@@ -41,3 +41,19 @@ p{
 .delete-button:hover{
     opacity: .7;
 }
+
+.add-button{
+    background-color: rgb(62, 119, 224);
+    border: none;
+    padding: 10px 25px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+
+.add-button:hover{
+    opacity: .7;
+}
